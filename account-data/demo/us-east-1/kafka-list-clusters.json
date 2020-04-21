@@ -18,7 +18,7 @@
                     }
                 }
             },
-            "ClusterArn": "arn:aws:kafka:us-east-1:123456789012:cluster/demo/ecf9bd76-d479-42b3-b588-b0ee9994c27a-3",
+            "ClusterArn": "arn:aws-us-gov:kafka:us-east-1:123456789012:cluster/demo/ecf9bd76-d479-42b3-b588-b0ee9994c27a-3",
             "ClusterName": "demo",
             "CreationTime": "2019-05-08T22:13:42.416000+00:00",
             "CurrentBrokerSoftwareInfo": {
@@ -27,7 +27,7 @@
             "CurrentVersion": "K3UN6WX5RRO2AG",
             "EncryptionInfo": {
                 "EncryptionAtRest": {
-                    "DataVolumeKMSKeyId": "arn:aws:kms:us-east-1:123456789012:key/b0890cec-3d0f-40b6-bd9c-e2f17eb18bf0"
+                    "DataVolumeKMSKeyId": "arn:aws-us-gov:kms:us-east-1:123456789012:key/b0890cec-3d0f-40b6-bd9c-e2f17eb18bf0"
                 }
             },
             "EnhancedMonitoring": "DEFAULT",

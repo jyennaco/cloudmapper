@@ -438,7 +438,7 @@ def run(arguments):
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--resource_arn",
-        help="The resource to be looked at, such as arn:aws:s3:::mybucket",
+        help="The resource to be looked at, such as arn:aws-us-gov:s3:::mybucket",
         required=True,
     )
     parser.add_argument(

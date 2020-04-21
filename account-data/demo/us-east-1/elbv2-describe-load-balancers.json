@@ -3,7 +3,7 @@
         {
             "IpAddressType": "ipv4", 
             "VpcId": "vpc-12345678", 
-            "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/demo/qwerty", 
+            "LoadBalancerArn": "arn:aws-us-gov:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/demo/qwerty",
             "State": {
                 "Code": "active"
             }, 

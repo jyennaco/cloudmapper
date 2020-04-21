@@ -225,7 +225,7 @@ class TestFindUnused(TestCase):
                                 "Status": "attached",
                             },
                             "AvailabilityZone": "us-east-1f",
-                            "Description": "arn:aws:ecs:us-east-1:653711331788:attachment/ed8fed01-82d0-4bf6-86cf-fe3115c23ab8",
+                            "Description": "arn:aws-us-gov:ecs:us-east-1:653711331788:attachment/ed8fed01-82d0-4bf6-86cf-fe3115c23ab8",
                             "Groups": [
                                 {"GroupId": "sg-00000008", "GroupName": "Public"}
                             ],
@@ -303,7 +303,7 @@ class TestFindUnused(TestCase):
                                         "InstanceProtocol": "HTTP",
                                         "LoadBalancerPort": 443,
                                         "Protocol": "HTTPS",
-                                        "SSLCertificateId": "arn:aws:acm:eu-west-1:123456789011:certificate/1e43d2f8-8f31-4a29-ba3e-fce3d2c6c0ed"
+                                        "SSLCertificateId": "arn:aws-us-gov:acm:eu-west-1:123456789011:certificate/1e43d2f8-8f31-4a29-ba3e-fce3d2c6c0ed"
                                     },
                                     "PolicyNames": [
                                         "ELBSecurityPolicy-2016-08"

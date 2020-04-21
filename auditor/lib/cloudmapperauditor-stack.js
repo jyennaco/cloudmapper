@@ -72,17 +72,17 @@ class CloudmapperauditorStack extends cdk.Stack {
 
     // Grant the ability to assume the IAM role in any account
     taskDefinition.addToTaskRolePolicy(new iam.PolicyStatement({
-      resources: ["arn:aws:iam::*:role/"+config['iam_role']],
+      resources: ["arn:aws-us-gov:iam::*:role/"+config['iam_role']],
       actions: ['sts:AssumeRole']
     }));
 
     // Grant the ability to read and write the files from the S3 bucket
     taskDefinition.addToTaskRolePolicy(new iam.PolicyStatement({
-      resources: ["arn:aws:s3:::"+config['s3_bucket']],
+      resources: ["arn:aws-us-gov:s3:::"+config['s3_bucket']],
       actions: ['s3:ListBucket']
     }));
     taskDefinition.addToTaskRolePolicy(new iam.PolicyStatement({
-      resources: ["arn:aws:s3:::"+config['s3_bucket']+"/*"],
+      resources: ["arn:aws-us-gov:s3:::"+config['s3_bucket']+"/*"],
       actions: ['s3:GetObject','s3:PutObject', 's3:DeleteObject']
     }));
 

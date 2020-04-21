@@ -17,8 +17,8 @@ from shared.nodes import Account, Region
 
 getLogger("policyuniverse").setLevel(CRITICAL)
 KNOWN_BAD_POLICIES = {
-    "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM": "Use AmazonSSMManagedInstanceCore instead and add privs as needed",
-    "arn:aws:iam::aws:policy/service-role/AmazonMachineLearningRoleforRedshiftDataSource": "Use AmazonMachineLearningRoleforRedshiftDataSourceV2 instead",
+    "arn:aws-us-gov:iam::aws:policy/service-role/AmazonEC2RoleforSSM": "Use AmazonSSMManagedInstanceCore instead and add privs as needed",
+    "arn:aws-us-gov:iam::aws:policy/service-role/AmazonMachineLearningRoleforRedshiftDataSource": "Use AmazonMachineLearningRoleforRedshiftDataSourceV2 instead",
 }
 
 
@@ -216,12 +216,12 @@ def find_admins_in_account(
         ):
             admin_policies.append(policy["Arn"])
             if (
-                "arn:aws:iam::aws:policy/AdministratorAccess" in policy["Arn"]
-                or "arn:aws:iam::aws:policy/IAMFullAccess" in policy["Arn"]
+                "arn:aws-us-gov:iam::aws:policy/AdministratorAccess" in policy["Arn"]
+                or "arn:aws-us-gov:iam::aws:policy/IAMFullAccess" in policy["Arn"]
             ):
                 # Ignore the admin policies that are obviously admin
                 continue
-            if "arn:aws:iam::aws:policy" in policy["Arn"]:
+            if "arn:aws-us-gov:iam::aws:policy" in policy["Arn"]:
                 # Detects the deprecated `AmazonElasticTranscoderFullAccess`
                 findings.add(
                     Finding(

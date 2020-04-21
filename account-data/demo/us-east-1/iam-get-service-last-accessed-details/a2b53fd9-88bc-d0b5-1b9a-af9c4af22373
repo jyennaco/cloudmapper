@@ -5,7 +5,7 @@
     "ServicesLastAccessed": [
         {
             "LastAuthenticated": "2019-04-15T04:19:00+00:00",
-            "LastAuthenticatedEntity": "arn:aws:iam::123456789012:role/service-role/bad_role",
+            "LastAuthenticatedEntity": "arn:aws-us-gov:iam::123456789012:role/service-role/bad_role",
             "ServiceName": "Amazon CloudWatch Logs",
             "ServiceNamespace": "logs",
             "TotalAuthenticatedEntities": 1

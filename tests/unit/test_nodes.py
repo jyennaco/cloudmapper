@@ -49,7 +49,7 @@ class TestNodes(unittest.TestCase):
         assert_equal(111111111111, account.local_id)
         assert_equal("prod", account.name)
         assert_equal("account", account.node_type)
-        assert_equal("arn:aws:::111111111111:", account.arn)
+        assert_equal("arn:aws-us-gov:::111111111111:", account.arn)
         assert_false(account.isLeaf)
         assert_equal("prod", get_name(json_blob, "name"))
         assert_false(account.has_leaves)
@@ -60,7 +60,7 @@ class TestNodes(unittest.TestCase):
                     "node_data": {"id": 111111111111, "name": "prod"},
                     "local_id": 111111111111,
                     "type": "account",
-                    "id": "arn:aws:::111111111111:",
+                    "id": "arn:aws-us-gov:::111111111111:",
                     "name": u"prod",
                 }
             },

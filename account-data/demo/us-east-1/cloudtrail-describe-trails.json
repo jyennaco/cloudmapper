@@ -9,7 +9,7 @@
             "LogFileValidationEnabled": true,
             "Name": "cloudtrail",
             "S3BucketName": "demo-logs",
-            "TrailARN": "arn:aws:cloudtrail:us-east-1:123456789012:trail/cloudtrail"
+            "TrailARN": "arn:aws-us-gov:cloudtrail:us-east-1:123456789012:trail/cloudtrail"
         }
     ]
 }

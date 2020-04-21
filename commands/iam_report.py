@@ -607,7 +607,7 @@ def iam_report(accounts, config, args):
             "managed": "",
         }
 
-        if "arn:aws:iam::aws:policy" in policy["Arn"]:
+        if "arn:aws-us-gov:iam::aws:policy" in policy["Arn"]:
             p["managed"] = '<i class="fab fa-amazon"></i>AWS managed policy<br>'
 
         # Attachments

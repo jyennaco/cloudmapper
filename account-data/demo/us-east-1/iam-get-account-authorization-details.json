@@ -2,7 +2,7 @@
     "GroupDetailList": [],
     "Policies": [
         {
-            "Arn": "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM",
+            "Arn": "arn:aws-us-gov:iam::aws:policy/service-role/AmazonEC2RoleforSSM",
             "AttachmentCount": 1,
             "CreateDate": "2016-11-10T17:20:15+00:00",
             "DefaultVersionId": "v8",
@@ -161,7 +161,7 @@
                                     "iam:UpdateSSHPublicKey", 
                                     "iam:UploadSSHPublicKey"
                                 ], 
-                                "Resource": "arn:aws:iam::123456789012:user/${aws:username}", 
+                                "Resource": "arn:aws-us-gov:iam::123456789012:user/${aws:username}",
                                 "Effect": "Allow", 
                                 "Sid": "AllowIndividualUserToSeeAndManageTheirOwnAccountInformation"
                             }, 
@@ -171,8 +171,8 @@
                                     "iam:ListMFADevices"
                                 ], 
                                 "Resource": [
-                                    "arn:aws:iam::123456789012:mfa/*", 
-                                    "arn:aws:iam::123456789012:user/${aws:username}"
+                                    "arn:aws-us-gov:iam::123456789012:mfa/*",
+                                    "arn:aws-us-gov:iam::123456789012:user/${aws:username}"
                                 ], 
                                 "Effect": "Allow", 
                                 "Sid": "AllowIndividualUserToListTheirOwnMFA"
@@ -188,8 +188,8 @@
                                     "iam:ResyncMFADevice"
                                 ], 
                                 "Resource": [
-                                    "arn:aws:iam::123456789012:mfa/${aws:username}", 
-                                    "arn:aws:iam::123456789012:user/${aws:username}"
+                                    "arn:aws-us-gov:iam::123456789012:mfa/${aws:username}",
+                                    "arn:aws-us-gov:iam::123456789012:user/${aws:username}"
                                 ], 
                                 "Effect": "Allow", 
                                 "Sid": "AllowIndividualUserToManageTheirOwnMFA"
@@ -211,13 +211,13 @@
                 }
             ], 
             "Path": "/", 
-            "Arn": "arn:aws:iam::123456789012:policy/BAD_MFA_POLICY", 
+            "Arn": "arn:aws-us-gov:iam::123456789012:policy/BAD_MFA_POLICY",
             "UpdateDate": "2019-05-07T18:55:12Z"
         }
     ],
     "RoleDetailList": [
         {
-            "Arn": "arn:aws:iam::123456789012:role/exfiller",
+            "Arn": "arn:aws-us-gov:iam::123456789012:role/exfiller",
             "AssumeRolePolicyDocument": {
                 "Statement": [
                     {
@@ -254,7 +254,7 @@
             "Tags": []
         },
         {
-            "Arn": "arn:aws:iam::123456789012:role/bad_role",
+            "Arn": "arn:aws-us-gov:iam::123456789012:role/bad_role",
             "AssumeRolePolicyDocument": {
                 "Statement": [
                     {
@@ -270,7 +270,7 @@
             "AttachedManagedPolicies": [
                 {
                     "PolicyName": "AmazonEC2RoleforSSM",
-                    "PolicyArn": "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM"
+                    "PolicyArn": "arn:aws-us-gov:iam::aws:policy/service-role/AmazonEC2RoleforSSM"
                 }
             ],
             "CreateDate": "2018-11-20T17:14:45+00:00",
@@ -298,7 +298,7 @@
             "Tags": []
         },
         {
-            "Arn": "arn:aws:iam::123456789012:role/service-role/level1",
+            "Arn": "arn:aws-us-gov:iam::123456789012:role/service-role/level1",
             "AssumeRolePolicyDocument": {
                 "Statement": [
                     {
@@ -326,14 +326,14 @@
                                     "s3:GetObject"
                                 ],
                                 "Effect": "Allow",
-                                "Resource": "arn:aws:s3:::level1.flaws2.cloud/*"
+                                "Resource": "arn:aws-us-gov:s3:::level1.flaws2.cloud/*"
                             },
                             {
                                 "Action": [
                                     "s3:ListBucket"
                                 ],
                                 "Effect": "Allow",
-                                "Resource": "arn:aws:s3:::level1.flaws2.cloud"
+                                "Resource": "arn:aws-us-gov:s3:::level1.flaws2.cloud"
                             },
                             {
                                 "Action": [
@@ -342,7 +342,7 @@
                                     "ecr:BatchGetImage"
                                 ],
                                 "Effect": "Allow",
-                                "Resource": "arn:aws:ecr:*:123456789012:repository/level2"
+                                "Resource": "arn:aws-us-gov:ecr:*:123456789012:repository/level2"
                             },
                             {
                                 "Action": [
@@ -360,7 +360,7 @@
             "Tags": []
         },
         {
-            "Arn": "arn:aws:iam::123456789012:role/level3",
+            "Arn": "arn:aws-us-gov:iam::123456789012:role/level3",
             "AssumeRolePolicyDocument": {
                 "Statement": [
                     {

@@ -26,31 +26,31 @@ class TestAccessCheck(unittest.TestCase):
         # Ensure replacement works
         assert_equal(
             replace_principal_variables(
-                "arn:aws:sns:*:*:${aws:PrincipalTag/project}", principal
+                "arn:aws-us-gov:sns:*:*:${aws:PrincipalTag/project}", principal
             ),
-            "arn:aws:sns:*:*:prod",
+            "arn:aws-us-gov:sns:*:*:prod",
         )
         # Ensure case insensitive replacement works
         assert_equal(
             replace_principal_variables(
-                "arn:aws:sns:*:*:${aws:principaltag/project}", principal
+                "arn:aws-us-gov:sns:*:*:${aws:principaltag/project}", principal
             ),
-            "arn:aws:sns:*:*:prod",
+            "arn:aws-us-gov:sns:*:*:prod",
         )
         # Ensure we don't replace unknown variables
         assert_equal(
             replace_principal_variables(
-                "arn:aws:sns:*:*:${aws:principaltag/app}", principal
+                "arn:aws-us-gov:sns:*:*:${aws:principaltag/app}", principal
             ),
-            "arn:aws:sns:*:*:${aws:principaltag/app}",
+            "arn:aws-us-gov:sns:*:*:${aws:principaltag/app}",
         )
         # Ensure multiple replacements works
         assert_equal(
             replace_principal_variables(
-                "arn:aws:sns:*:*:${aws:PrincipalTag/project}-${aws:PrincipalTag/color}",
+                "arn:aws-us-gov:sns:*:*:${aws:PrincipalTag/project}-${aws:PrincipalTag/color}",
                 principal,
             ),
-            "arn:aws:sns:*:*:prod-blue",
+            "arn:aws-us-gov:sns:*:*:prod-blue",
         )
 
     def test_get_privilege_statements(self):
@@ -76,7 +76,7 @@ class TestAccessCheck(unittest.TestCase):
                         "sns:Publish"
                     ],
                     "Resource": [
-                        "arn:aws:sns:*:*:${aws:PrincipalTag/project}-*"
+                        "arn:aws-us-gov:sns:*:*:${aws:PrincipalTag/project}-*"
                     ]
                 }
             ],
@@ -127,7 +127,7 @@ class TestAccessCheck(unittest.TestCase):
         assert_true(
             len(
                 get_privilege_statements(
-                    policy_doc, privilege_matches, "arn:aws:sns:*:*:prod-*", principal
+                    policy_doc, privilege_matches, "arn:aws-us-gov:sns:*:*:prod-*", principal
                 )
             )
             > 0
@@ -136,7 +136,7 @@ class TestAccessCheck(unittest.TestCase):
         assert_true(
             len(
                 get_privilege_statements(
-                    policy_doc, privilege_matches, "arn:aws:sns:*:*:dev-*", principal
+                    policy_doc, privilege_matches, "arn:aws-us-gov:sns:*:*:dev-*", principal
                 )
             )
             == 0
@@ -165,7 +165,7 @@ class TestAccessCheck(unittest.TestCase):
                         "sns:Publish"
                     ],
                     "Resource": [
-                        "arn:aws:sns:*:*:${aws:PrincipalTag/project}-*"
+                        "arn:aws-us-gov:sns:*:*:${aws:PrincipalTag/project}-*"
                     ]
                 }
             ],
@@ -273,7 +273,7 @@ class TestAccessCheck(unittest.TestCase):
     #             "ec2:StopInstances"
     #         ],
     #         "Resource":[
-    #             "arn:aws:ec2:*:*:instance/*"
+    #             "arn:aws-us-gov:ec2:*:*:instance/*"
     #         ],
     #         "Effect":"Allow",
     #         "Condition":{
@@ -315,7 +315,7 @@ class TestAccessCheck(unittest.TestCase):
     #             "ec2:StopInstances"
     #         ],
     #         "Resource":[
-    #             "arn:aws:ec2:*:*:instance/*"
+    #             "arn:aws-us-gov:ec2:*:*:instance/*"
     #         ],
     #         "Effect":"Allow",
     #         "Condition":{
@@ -521,7 +521,7 @@ class TestAccessCheck(unittest.TestCase):
         parser = argparse.ArgumentParser()
         parser.add_argument(
             "--resource_arn",
-            help="The resource to be looked at, such as arn:aws:s3:::mybucket",
+            help="The resource to be looked at, such as arn:aws-us-gov:s3:::mybucket",
             required=True,
         )
         parser.add_argument(
@@ -534,7 +534,7 @@ class TestAccessCheck(unittest.TestCase):
                 "--config",
                 "config.json.demo",
                 "--resource_arn",
-                "arn:aws:sns:*:*:prod-*",
+                "arn:aws-us-gov:sns:*:*:prod-*",
             ],
             parser,
         )

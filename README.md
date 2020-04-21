@@ -110,8 +110,8 @@ You must have AWS credentials configured that can be used by the CLI with read p
 
 You must have the following privileges (these grant various read access of metadata):
 
-- `arn:aws:iam::aws:policy/SecurityAudit`
-- `arn:aws:iam::aws:policy/job-function/ViewOnlyAccess`
+- `arn:aws-us-gov:iam::aws:policy/SecurityAudit`
+- `arn:aws-us-gov:iam::aws:policy/job-function/ViewOnlyAccess`
 
 
 ### Collect the data

@@ -216,7 +216,7 @@ class Node(object):
 class Account(Node):
     def __init__(self, parent, json_blob):
         self._local_id = json_blob["id"]
-        self._arn = "arn:aws:::{}:".format(self._local_id)
+        self._arn = "arn:aws-us-gov:::{}:".format(self._local_id)
         self._name = json_blob["name"]
         self._type = "account"
         super(Account, self).__init__(parent, json_blob)
@@ -225,7 +225,7 @@ class Account(Node):
 class Region(Node):
     def __init__(self, parent, json_blob):
         self._local_id = json_blob["RegionName"]
-        self._arn = "arn:aws::{}:{}:".format(self.local_id, parent.account.local_id)
+        self._arn = "arn:aws-us-gov::{}:{}:".format(self.local_id, parent.account.local_id)
         self._name = json_blob["RegionName"]
         self._type = "region"
         super(Region, self).__init__(parent, json_blob)
@@ -246,9 +246,9 @@ class Vpc(Node):
         return self._json_blob["CidrBlock"]
 
     def __init__(self, parent, json_blob):
-        # arn:aws:ec2:region:account-id:vpc/vpc-id
+        # arn:aws-us-gov:ec2:region:account-id:vpc/vpc-id
         self._local_id = json_blob["VpcId"]
-        self._arn = "arn:aws::{}:{}:vpc/{}".format(
+        self._arn = "arn:aws-us-gov::{}:{}:vpc/{}".format(
             parent.region.name, parent.account.local_id, self._local_id
         )
         self._name = get_name(json_blob, "VpcId") + " (" + json_blob["CidrBlock"] + ")"
@@ -262,7 +262,7 @@ class Vpc(Node):
 class Az(Node):
     def __init__(self, parent, json_blob):
         self._local_id = json_blob["ZoneName"]
-        self._arn = "arn:aws::{}:{}:vpc/{}/az/{}".format(
+        self._arn = "arn:aws-us-gov::{}:{}:vpc/{}/az/{}".format(
             parent.region.local_id,
             parent.account.local_id,
             parent.local_id,
@@ -275,9 +275,9 @@ class Az(Node):
 
 class Subnet(Node):
     def __init__(self, parent, json_blob):
-        # arn:aws:ec2:region:account-id:subnet/subnet-id
+        # arn:aws-us-gov:ec2:region:account-id:subnet/subnet-id
         self._local_id = json_blob["SubnetId"]
-        self._arn = "arn:aws::{}:{}:subnet/{}".format(
+        self._arn = "arn:aws-us-gov::{}:{}:subnet/{}".format(
             parent.region.name, parent.account.local_id, self._local_id
         )
         self._name = (
@@ -360,7 +360,7 @@ class Ec2(Leaf):
             self._type = "ec2"
             self._local_id = json_blob["InstanceId"]
 
-        self._arn = "arn:aws:ec2:{}:{}:instance/{}".format(
+        self._arn = "arn:aws-us-gov:ec2:{}:{}:instance/{}".format(
             parent.region.name, parent.account.local_id, self._local_id
         )
         self._name = get_name(json_blob, "InstanceId")
@@ -412,7 +412,7 @@ class Elb(Leaf):
     def __init__(self, parent, json_blob):
         self._type = "elb"
         self._local_id = json_blob["LoadBalancerName"]
-        self._arn = "arn:aws:elasticloadbalancing:{}:{}:instance/{}/{}".format(
+        self._arn = "arn:aws-us-gov:elasticloadbalancing:{}:{}:instance/{}/{}".format(
             parent.region.name, parent.account.local_id, self._local_id, parent.local_id
         )
 
@@ -465,7 +465,7 @@ class Elbv2(Leaf):
     def __init__(self, parent, json_blob):
         self._type = "elbv2"
         self._local_id = json_blob["LoadBalancerName"]
-        self._arn = "arn:aws:elasticloadbalancingv2:{}:{}:instance/{}/{}".format(
+        self._arn = "arn:aws-us-gov:elasticloadbalancingv2:{}:{}:instance/{}/{}".format(
             parent.region.name, parent.account.local_id, self._local_id, parent.local_id
         )
 
@@ -576,7 +576,7 @@ class VpcEndpoint(Leaf):
     def __init__(self, parent, json_blob):
         self._type = "vpc_endpoint"
         self._local_id = json_blob["VpcEndpointId"]
-        self._arn = "arn:aws:endpoint:{}:{}:instance/{}".format(
+        self._arn = "arn:aws-us-gov:endpoint:{}:{}:instance/{}".format(
             parent.region.name, parent.account.local_id, self._local_id
         )
 
